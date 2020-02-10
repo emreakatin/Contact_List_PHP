@@ -20,11 +20,11 @@
     <div class="jumbotron">
         <h1 class="display-4">Participant List</h1>
         <p class="lead"></p>
-        <a class="btn btn-primary btn-dark" href="create.php" role="button">click to add new participants</a>
+        <a class="btn btn-primary btn-dark" href="create.php" role="button">Click to add new participants</a>
     </div>
     </div>
 
-
+    
 
 
     <!-- Optional JavaScript -->
