@@ -17,4 +17,4 @@ INSERT INTO `persons` (`id`, `Name`, `Number`) VALUES
 (1,	'Emre Akatın',	1984631),
 (2,	'Ahmet Yılmaz',	784739654);
 
--- 2020-02-10 18:09:27
+-- 2020-02-10 18:26:14
