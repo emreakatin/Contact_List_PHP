@@ -1,5 +1,23 @@
 
 
+<?php
+    include 'db_baglan.php';
+
+    if(isset($_GET["ara"])) {
+        $ARANANAD = $_GET["ara"];
+        // Çalıştırılacak sorgu
+        $SORGU = $DB->prepare("SELECT * FROM rehber
+            WHERE adisoyadi LIKE '%$ARANANAD%' ");
+    } else {
+        // Çalıştırılacak sorgu
+        $SORGU = $DB->prepare("SELECT * FROM rehber");
+    }
+    // Sorguyu çalıştır
+    $SORGU->execute();
+    // Kayıtları Getir
+    $KAYITLAR = $SORGU->fetchAll();
+?>
+
 <!doctype html>
 <html>
   <head>
@@ -23,8 +41,35 @@
         <a class="btn btn-primary btn-dark" href="create.php" role="button">Click to add new participants</a>
     </div>
     </div>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Number</th>
 
-    
+        </tr>
+      </thead>
+<?php foreach ($KAYITLAR as $KAYIT): ?>
+      <tbody>
+        <tr>
+          <th scope="row">
+            <?php echo $KAYIT['id'] ?>
+          </th>
+          <td><?php echo $KAYIT['Name'] ?></td>
+          <td>  <?php echo $KAYIT['Number'] ?></td>
+
+
+        </tr>
+
+      </tbody>
+<?php endforeach; ?>
+    </table>
+  </div>
+  <div class="col-md-2"></div>
+
 
 
     <!-- Optional JavaScript -->

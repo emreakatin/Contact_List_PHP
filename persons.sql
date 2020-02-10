@@ -5,6 +5,12 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
+SET NAMES utf8mb4;
+
+DROP DATABASE IF EXISTS `Contact_List`;
+CREATE DATABASE `contact_list` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+USE `Contact_List`;
+
 DROP TABLE IF EXISTS `persons`;
 CREATE TABLE `persons` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -17,4 +23,4 @@ INSERT INTO `persons` (`id`, `Name`, `Number`) VALUES
 (1,	'Emre Akatın',	1984631),
 (2,	'Ahmet Yılmaz',	784739654);
 
--- 2020-02-10 18:26:14
+-- 2020-02-10 18:29:06
