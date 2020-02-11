@@ -28,20 +28,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <p>
-        <form method="GET">
-            <input type="text" name="ara" placeholder="Arama yapın...">
-            <input type="submit" value="Ara!">
-        </form>
-    </p>
 
-        <p>
-            <a href="create.php"><button type="button">Yeni kişi ekle</button></a>
-        </p>
 
     <title>Contact List</title>
   </head>
-  <body style="background-color:#bfbfbf">
+  <body style="background-color:hsl(89, 43%, 51%)">
     <div class="continer mt-5 mb-5">
     <div class="row">
     <div class="col-md-2"></div>
@@ -52,6 +43,16 @@
         <a class="btn btn-primary btn-dark" href="create.php" role="button">Click to add new participants</a>
     </div>
     </div>
+
+
+    <p>
+        <form method="GET">
+            <input type="text" name="ara" placeholder="Search">
+            <input type="submit" value="Find!">
+        </form>
+    </p>
+
+
 <div class="col-md-2"></div>
 <div class="col-md-8">
   <table class="table table-striped">
