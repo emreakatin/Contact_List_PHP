@@ -1,16 +1,16 @@
 
 
 <?php
-    include 'db_baglan.php';
+    include 'db_connect.php';
 
     if(isset($_GET["ara"])) {
         $ARANANAD = $_GET["ara"];
         // Çalıştırılacak sorgu
-        $SORGU = $DB->prepare("SELECT * FROM rehber
+        $SORGU = $DB->prepare("SELECT * FROM persons
             WHERE adisoyadi LIKE '%$ARANANAD%' ");
     } else {
         // Çalıştırılacak sorgu
-        $SORGU = $DB->prepare("SELECT * FROM rehber");
+        $SORGU = $DB->prepare("SELECT * FROM persons");
     }
     // Sorguyu çalıştır
     $SORGU->execute();
@@ -27,6 +27,17 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <p>
+        <form method="GET">
+            <input type="text" name="ara" placeholder="Arama yapın...">
+            <input type="submit" value="Ara!">
+        </form>
+    </p>
+
+        <p>
+            <a href="create.php"><button type="button">Yeni kişi ekle</button></a>
+        </p>
 
     <title>Contact List</title>
   </head>
