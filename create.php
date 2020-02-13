@@ -3,11 +3,11 @@
 
     if(isset($_POST['submit'])){
         // Sorguyu hazırlayalım
-        $SORGU = $DB->prepare("INSERT INTO rehber(adisoyadi, telefonu, birimi)
-        VALUES (:adisoyadi,:telefonu,:birimi)");
-        $SORGU->bindParam(":adisoyadi", $adisoyadi);
-        $SORGU->bindParam(":telefonu",  $telefonu);
-        $SORGU->bindParam(":birimi",    $birimi);
+        $SORGU = $DB->prepare("INSERT INTO persons(Name,Number)
+        VALUES (:Name,:Number)");
+        $SORGU->bindParam(":Name", $Number);
+        $SORGU->bindParam(":Name",  $Number);
+
         // SQL Sorgumuzu çalıştıralım
         $SORGU->execute();
         $YeniKayitID = $DB->lastInsertId();
@@ -48,12 +48,12 @@
   <div class="container">
   <div class="form-group">
     <label for="exampleInputEmail1">Name</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     <small id="emailHelp" class="form-text text-muted">We'll never share your number with anyone else.</small>
   </div>
       <div class="form-group">
     <label for="exampleInputPassword1">Number</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input type="text" class="form-control" id="exampleInputPassword1">
       </div>
         <div class="form-group form-check">
 
