@@ -1,7 +1,7 @@
 <?php
     // Veritabanı Bağlantı ayarları
     $host     = "localhost";
-    $DBname   = "Contact_List";
+    $DBname   = "contactlist";
     $username = "root";
     $password = "root";
 

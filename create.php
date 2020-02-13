@@ -1,25 +1,30 @@
 <?php
-    include 'db_connect.php';
+    include 'db_baglan.php';
 
     if(isset($_POST['submit'])){
         // Sorguyu hazırlayalım
-        $SORGU = $DB->prepare("INSERT INTO persons(Name,Number)
-        VALUES (:Name,:Number)");
-        $SORGU->bindParam(":Name", $Number);
-        $SORGU->bindParam(":Name",  $Number);
-
+        $SORGU = $DB->prepare("INSERT INTO persons(names, numbers)
+        VALUES (:adisoyadi,:numarasi)");
+        $SORGU->bindParam(":adisoyadi", $_POST["adisoyadi"]);
+        $SORGU->bindParam(":numarasi",  $_POST["numarasi"]);
         // SQL Sorgumuzu çalıştıralım
         $SORGU->execute();
+        
+        // Son eklenen kaydın kayıt numarasını alalım
         $YeniKayitID = $DB->lastInsertId();
-        die("$YeniKayitID Kayıt numarası ile kaydedildi");
-        // İşlem tamam. Ana sayfaya yönlendirelim.
-        header("location: index.php");
+
+        echo "<h1>Yeni Kayıt Başarılı</h1>";
+        echo "<p>Bu kişi rehbere <b>$YeniKayitID kayıt numarası</b> ile eklendi</p>";
+
+        echo "<br><br><br>";
+        echo "<p>3 saniye içinde Ana Sayfaya yönleneceksiniz...</p>";
+        
+        // İşlem tamam. 3sn bekleyip, Ana sayfaya yönlendirelim.
+        header("Refresh:3; url=index.php");
         die();
     }
 ?>
 
-
-<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -44,24 +49,18 @@
         <p> </p>
         <p> </p>
 
-    <form>
+   
   <div class="container">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Name</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your number with anyone else.</small>
-  </div>
-      <div class="form-group">
-    <label for="exampleInputPassword1">Number</label>
-    <input type="text" class="form-control" id="exampleInputPassword1">
-      </div>
-        <div class="form-group form-check">
-
-
-      </div>
-      <button type="submit" class="btn btn-primary" name="submit" >Submit</button>
+     <form method="post">
+        Name-Surname
+      <input type="text" class="form-control" aria-describedby="emailHelp" name="adisoyadi">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your numbers with anyone else.</small>
+        Number
+      <input type="text" class="form-control" name="numarasi">
+      <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
-    </form>
+    
 
 
     <!-- Optional JavaScript -->

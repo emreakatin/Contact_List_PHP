@@ -1,24 +1,24 @@
-
-
 <?php
-    include 'db_connect.php';
+    include 'db_baglan.php';
 
-    if(isset($_GET["ara"])) {
+    /*if(isset($_GET["ara"])) {
         $ARANANAD = $_GET["ara"];
+        $ARANANAD = "%$ARANANAD%";
         // Çalıştırılacak sorgu
-        $SORGU = $DB->prepare("SELECT * FROM persons
-            WHERE adisoyadi LIKE '%$ARANANAD%' ");
-    } else {
-        // Çalıştırılacak sorgu
-        $SORGU = $DB->prepare("SELECT * FROM persons");
-    }
+        $SORGU = $DB->prepare("SELECT * FROM contactlist 
+            WHERE adisoyadi LIKE :arananad ");
+        $SORGU->bindParam(":arananad", $ARANANAD);
+    } */
+     // Çalıştırılacak sorgu
+     $SORGU = $DB->prepare("SELECT * FROM persons");
+   
     // Sorguyu çalıştır
     $SORGU->execute();
     // Kayıtları Getir
     $KAYITLAR = $SORGU->fetchAll();
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <!-- Required meta tags -->
@@ -70,8 +70,8 @@
           <th scope="row">
             <?php echo $KAYIT['id'] ?>
           </th>
-          <td><?php echo $KAYIT['Name'] ?></td>
-          <td>  <?php echo $KAYIT['Number'] ?></td>
+          <td><?php echo $KAYIT['names'] ?></td>
+          <td>  <?php echo $KAYIT['numbers'] ?></td>
 
 
         </tr>

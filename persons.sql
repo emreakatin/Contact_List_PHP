@@ -5,22 +5,16 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
-SET NAMES utf8mb4;
-
-DROP DATABASE IF EXISTS `Contact_List`;
-CREATE DATABASE `contact_list` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `Contact_List`;
-
 DROP TABLE IF EXISTS `persons`;
 CREATE TABLE `persons` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(50) COLLATE utf8_turkish_ci NOT NULL,
-  `Number` int(20) NOT NULL,
+  `names` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
+  `numbers` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
-INSERT INTO `persons` (`id`, `Name`, `Number`) VALUES
-(1,	'Emre Akatın',	1984631),
-(2,	'Ahmet Yılmaz',	784739654);
+INSERT INTO `persons` (`id`, `names`, `numbers`) VALUES
+(1,	'furkan bedir',	123123),
+(2,	'saksolayıcı',	123123);
 
--- 2020-02-10 18:29:06
+-- 2020-02-13 20:12:54
